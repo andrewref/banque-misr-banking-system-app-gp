@@ -1,0 +1,171 @@
+<div class="title d-flex justify-content-between align-items-center">
+  <div>
+    <h5>Transaction History</h5>
+    <p>View and filter your account transactions</p>
+  </div>
+ 
+</div>
+
+<div class="container">
+  <div class="card-design">
+
+    <div *ngIf="isLoading" class="text-center p-3">
+      <i class="fa fa-spinner fa-spin"></i> Loading transactions...
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="!isLoading && !errorMessage">
+      <div class="d-flex">
+        <a class="navbar-brand text-dark">
+          <i class=" filter-icon fa-solid fa-filter"></i>
+        </a>
+        <p class="icon-desc">Filters<p>
+      </div>
+      <div class="transaction-info d-flex col-lg-6 col-md-12 col-12 justify-content-between">
+        <div class="search">
+          <p class="info-p">Search Description</p>
+          <i class=" search-icon fa-solid fa-sm fa-magnifying-glass"></i>
+          <input type="text" [(ngModel)]="query" class="search-field"
+            placeholder=" Search by description..."/> 
+          <small class="text-muted">
+            Showing {{(userTransactions | transactionFilter:query:typeFilter).length}} of {{userTransactions.length}} transactions
+          </small>
+        </div>
+        <div class="transaction-type">
+          <p class="info-p">Transaction Type</p>
+          <select class="form-select w-auto" id="transactionTypes" [(ngModel)]="typeFilter">
+            <option value="">All Types</option>
+            <option value="Credit">Credit</option>
+            <option value="Debit">Debit</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@if ((userTransactions | transactionFilter:query:typeFilter).length === 0) {
+  <div class="text-muted">
+    No transactions found.
+  </div>
+} @else {
+  <div class="stack">
+    @for (t of (visibleTransactions | transactionFilter:query:typeFilter); track t.id) {
+     
+    }
+  </div>
+}
+
+<div class="container">
+  <div class="card-design">
+     <div class="transactions mt-4">
+  <h6>Transactions</h6>
+  <p class="transactions-no">{{ (userTransactions | transactionFilter:query:typeFilter).length }} transactions found</p>
+
+  @if ((userTransactions | transactionFilter:query:typeFilter).length === 0) {
+    <p class="text-muted">No transactions found</p>
+  } @else {
+    <div class="stack">
+      @for (t of (visibleTransactions | transactionFilter:query:typeFilter); track t.id) {
+        <div class="transaction-item card p-3 mb-2" (click)="showDetails(t)">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+              <div class="icon">
+  <i class="fa-solid" 
+     [ngClass]="{
+       'fa-arrow-trend-up': t.type === 'Credit', 
+       'fa-arrow-trend-down': t.type !== 'Credit',
+     }">
+  </i>
+</div>
+              <div class="icon-info">
+                <p class="description fw-bold mb-1">{{ t.description }}</p>
+                <div class="date-type d-flex align-items-center gap-2">
+                <p class="text-muted mb-0">{{ t.date | date:'MMM d,y'}}</p>
+                <span [ngClass]="t.type ==='Credit' ? 'badge bg-primary': 'badge bg-success' ">{{ t.type }}</span>
+              </div>
+             
+              </div>
+              
+            </div>
+            <div class="text-end">
+              <p [ngClass]="t.type === 'Credit' ? 'text-success' : 'text-danger'" class="fw-bold mb-1">
+                {{t.type === 'Credit' ? '+' : '--'}}
+                {{ t.amount| currency:'USD':'symbol' }}
+              </p>
+              <p class="text-muted mb-0">Transaction ID: {{ t.id }}</p>
+               <button (click)="onDelete((t.id))" class="btn btn-danger btn-sm">Delete</button>
+            </div>
+
+          </div>
+        </div>
+      }
+      <button class="load-more" (click)="loadMore()" *ngIf="visibleCount < transactions.length">Load More</button>
+
+    </div>
+  }
+</div>
+@if (selectedTransaction) {
+  <div class="custom-modal-overlay" (click)="closeDetails()"></div>
+
+  <div class="custom-modal px-4 py-4">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        <i class="fas fa-info-circle me-2 mb-1"></i>
+        Transaction Details
+      </h5>
+      <button type="button" class="btn-close" (click)="closeDetails()"></button>
+    </div>
+
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Transaction ID:</strong> {{ selectedTransaction.id }}</p>
+          <p><strong>Description:</strong> {{ selectedTransaction.description }}</p>
+          <p><strong>Type:</strong>
+            <span class="badge"
+                  [ngClass]="{
+                    'bg-success': selectedTransaction.type === 'Credit',
+                    'bg-danger': selectedTransaction.type === 'Debit'
+                  }">
+              {{ selectedTransaction.type }}
+            </span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Amount:</strong>
+            <span class="h5"
+                  [ngClass]="{
+                    'text-success': selectedTransaction.type === 'Credit',
+                    'text-danger': selectedTransaction.type === 'Debit'
+                  }">
+              {{ selectedTransaction.type === 'Credit' ? '+' : '-' }}
+              {{ selectedTransaction.amount | currency:'USD':'symbol':'1.2-2' }}
+            </span>
+          </p>
+          <p><strong>Date:</strong> {{ selectedTransaction.date | date:'fullDate' }}</p>
+          <p><strong>Time:</strong> {{ selectedTransaction.date | date:'shortTime' }}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>From Account:</strong> {{ selectedTransaction.fromAccountNo }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>To Account:</strong> {{ selectedTransaction.ToAccountNo }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeDetails()">
+        <i class="fas fa-times me-1"></i> Close
+      </button>
+    </div>
+  </div>
+}

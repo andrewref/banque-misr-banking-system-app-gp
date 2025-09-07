@@ -1,0 +1,209 @@
+/* .account-container {
+ max-width: 98%;
+ margin-left:15px;
+ margin-top: 20px;
+ font-family: Arial, sans-serif;
+}
+
+.account-card {
+background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top:0px ;
+  border: 1px solid #e0e0e0;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #928f8f;
+  margin-bottom: 20px;
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-item {
+  font-size: 15px;
+  color: #333;
+}
+
+.balance {
+  font-size: 20px;
+  color: #05BD83;
+  font-weight: bold;
+}
+
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.accountType{
+  background-color: #05BD83;
+  border-radius: 12px;
+}
+.icon_and_left{
+  display: flex;
+}
+.icon{
+  margin-top: 10px;
+  margin-right: 4px;
+}
+.upper-arrow {
+  color: #05BD83;
+}
+.transaction{
+  border: 1px solid #e0e0e0;
+}
+.tx-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 14px;
+}
+
+.tx-date {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.tx-amount {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+.type {
+  color: black;
+  font-size: 12px;
+  text-align: center;
+  padding: 2px 6px;
+  margin-left: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius:12px ;
+}
+h6{
+  font-weight: 600;
+  font-size: 16px;
+} */
+ .account-container {
+  max-width: 98%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.account-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #928f8f;
+  margin-bottom: 20px;
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.account-item {
+  font-size: 15px;
+  color: #333;
+}
+
+.balance {
+  font-size: 20px;
+  color: #05BD83;
+  font-weight: bold;
+}
+
+/* Transactions */
+.transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.icon_and_left {
+  display: flex;
+  gap: 6px;
+}
+
+.tx-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.tx-date {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.tx-amount {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.type {
+  font-size: 12px;
+  padding: 2px 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-left: 24px;
+}
+
+/* دي اللي بتحط اللون حسب نوع المعاملة */
+
+.accountType {
+  background-color: #05BD83;
+  border-radius: 12px;
+  padding: 2px 8px;
+  display: inline-block;
+
+}

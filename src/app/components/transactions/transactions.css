@@ -1,0 +1,140 @@
+.title{
+  margin: 30px 0px 0px 15px;
+  padding: auto;
+}
+.title h5{
+  font-weight: 600;
+  font-size: 18px;
+  line-height:4px;
+}
+.title p{
+  font-weight: 400;
+  font-size: 12px;
+  color: #928f8f;
+}
+.container{
+ max-width: 98%;
+ margin-left:15px;
+ font-family: Arial, sans-serif;
+}
+
+.card-design{
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top:0px ;
+  border: 1px solid #e0e0e0;
+}
+.filter-icon{
+  margin-bottom: 4px;
+}
+.icon-desc{
+  font-size: 14px;
+  padding-right: 3px;
+  margin-left: 5px;
+}
+.info-p{
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.search-field{
+  font-size: 14px;
+  border-style: none;
+  color: rgb(201, 203, 203);
+  margin-bottom: 20px;
+    margin-left: 5px;
+
+}
+
+.search-field:hover {
+  box-shadow: 0 0 6px rgba(160, 166, 172, 0.837);
+  border-radius: 6px;
+}
+.search-field:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(160, 166, 172, 0.837);
+    border-radius: 6px;
+
+}
+
+.search{
+  /* margin-right: 200px; */
+  max-width: 250px;
+}
+.search-icon{
+  color: rgb(201, 203, 203);  
+  margin-left: 16px;
+  
+}
+.form-select{
+  font-size: 14px;
+  border-style: none;
+}
+.text-muted{
+ color: rgb(201, 203, 203);
+}
+
+.fa-arrow-trend-up{
+  color: green;
+  background-color: #DCFDEE;
+  padding: 10px;
+  border-radius: 50%;
+}
+.fa-arrow-trend-down{
+  color: red;
+  background-color: #FFDFE9;
+  padding: 10px;
+  border-radius: 50%;
+}
+h6{
+  font-weight: 600;
+  font-size: 16px;
+}
+.transactions-no{
+  font-size: 14px;
+  color: #928f8f;
+}
+.description{
+  font-size: 14px;
+} 
+
+.load-more{
+  background-color: #131313;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+}
+
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 600px;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 1050;
+  padding: 1rem;
+}
