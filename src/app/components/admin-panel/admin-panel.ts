@@ -55,8 +55,7 @@ export class AdminPanel implements OnInit, OnDestroy {
   
   successMessage = '';
   errorMessage = '';
-  
-  userForm
+
   userForm = new FormGroup({
     userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
