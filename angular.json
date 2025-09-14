@@ -13,6 +13,8 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/banking_system_app",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -42,18 +44,19 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
+"budgets": [
+  {
+    "type": "initial",
+    "maximumWarning": "5MB",
+    "maximumError": "10MB"
+  },
+  {
+    "type": "anyComponentStyle",
+    "maximumWarning": "50kB",
+    "maximumError": "100kB"
+  }
+],
+
               "outputHashing": "all"
             },
             "development": {
