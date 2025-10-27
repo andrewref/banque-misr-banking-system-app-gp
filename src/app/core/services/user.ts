@@ -262,32 +262,14 @@ export class UserService {
     email: "risk@bank.com",
     phone: "+15554447777"
   },
-   {
-    id: "28",
-    userName: "risk_admin",
-    password: "R!sk@456",
-    role: Role.Admin,
-    isActive: true,
-    email: "risk@bank.com",
-    phone: "+15554447777"
-  },
   {
-    id: "31",
-    userName: "AndrewTest",
-    password: "AndrewTest1!",
+    id: "29",
+    userName: "daniel_t",
+    password: "D@n13lT",
     role: Role.User,
     isActive: true,
-    email: "andrew.test@example.com",
+    email: "daniel.t@example.com",
     phone: "+15555558888"
-  },
-   {
-    id: "32",
-    userName: "AndrewAdmin",
-    password: "AndrewAdmin1!",
-    role: Role.Admin,
-    isActive: true,
-    email: "andrew.admin@example.com",
-    phone: "+15555558288"
   },
   {
     id: "30",
